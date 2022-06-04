@@ -20,8 +20,8 @@ export class Board extends AbstractGameObject {
     }
 
     bind(ball: Ball) {
-        this.setOnCollideWith(ball, () => {
-            console.log("Collide with: ", this.toString());
-        });
+        // this.setOnCollideWith(ball, () => {
+        //     console.log("Collide with: ", this.toString());
+        // });
     }
 }

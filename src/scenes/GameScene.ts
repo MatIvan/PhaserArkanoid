@@ -8,6 +8,7 @@ import * as GameScenePreloader from './GameScenePreloader';
 import * as GameSceneCreator from './GameSceneCreator';
 import * as GameObjectFactory from './elements/GameObjectFactory';
 import { AbstractGameObject } from './elements/AbstractGameObject';
+import * as GameSceneEmitter from './GameSceneEmitter';
 
 
 export default class GameScene extends Phaser.Scene {
@@ -49,6 +50,8 @@ export default class GameScene extends Phaser.Scene {
                 this._ball.start();
             }
         });
+
+        GameSceneEmitter.onLooseBall((ball) => { this.looseBall(ball) });
     }
 
     update(): void {
@@ -58,7 +61,7 @@ export default class GameScene extends Phaser.Scene {
         this._dev.setText(this._ball.toString() + this._board.toString());
     }
 
-    looseBall() {
+    looseBall(ball: Ball) {
         this._isFollow = true;
     }
 
@@ -80,7 +83,6 @@ export default class GameScene extends Phaser.Scene {
         });
 
         //bind
-        console.log(this._ball);
         gameObjArray.forEach(gameObject => gameObject.bind(this._ball));
     }
 

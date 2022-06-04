@@ -1,6 +1,7 @@
 import { AbstractGameObject } from './AbstractGameObject';
 import { Ball } from './Ball';
 import { SceneObject } from './SceneObject';
+import { fireLooseBall } from '../GameSceneEmitter';
 
 export class LooseBallSensor extends AbstractGameObject {
 
@@ -10,7 +11,7 @@ export class LooseBallSensor extends AbstractGameObject {
 
     bind(ball: Ball) {
         this.setOnCollideWith(ball, () => {
-            console.log("Collide with: ", this.toString());
+            fireLooseBall(ball);
         });
     }
 }
