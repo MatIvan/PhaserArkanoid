@@ -41,4 +41,10 @@ export class Ball extends AbstractGameObject {
             this.image.setPosition(x, y - height);
         }
     }
+
+    bind(ball: Ball) {
+        this.setOnCollideWith(ball, () => {
+            console.log("Collide with: ", this.toString());
+        });
+    }
 }

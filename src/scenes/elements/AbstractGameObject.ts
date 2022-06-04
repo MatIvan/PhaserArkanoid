@@ -1,13 +1,17 @@
 import { BodyType } from 'matter';
 import * as Phaser from 'phaser'
+import { Ball } from './Ball';
 import { SceneObject } from './SceneObject';
 
 export abstract class AbstractGameObject {
+
     private _sceneObject: SceneObject;
 
     constructor(sceneObject: SceneObject) {
         this._sceneObject = sceneObject;
     }
+
+    abstract bind(ball: Ball): void;
 
     get sceneObject(): SceneObject {
         return this._sceneObject;

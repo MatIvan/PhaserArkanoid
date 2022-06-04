@@ -5,3 +5,14 @@ export const GameObjectType = {
     BALL: "ball",
     SENSOR: "sensor",
 }
+
+export const GameObjectNames = {
+    BALL: "ball",
+    BOARD: "board",
+    SENSOR: {
+        TOP: "sensor-top",
+        BOTTOM: "sensor-bottom",
+        LEFT: "sensor-left",
+        RIGHT: "sensor-right",
+    }
+}

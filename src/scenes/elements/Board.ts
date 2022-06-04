@@ -1,5 +1,6 @@
 import * as Phaser from 'phaser';
 import { AbstractGameObject } from './AbstractGameObject';
+import { Ball } from './Ball';
 import { SceneObject } from "./SceneObject";
 
 export class Board extends AbstractGameObject {
@@ -18,4 +19,9 @@ export class Board extends AbstractGameObject {
         this.image.setX(bx);
     }
 
+    bind(ball: Ball) {
+        this.setOnCollideWith(ball, () => {
+            console.log("Collide with: ", this.toString());
+        });
+    }
 }

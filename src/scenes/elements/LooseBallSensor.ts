@@ -1,8 +1,8 @@
-import { AbstractGameObject } from "./AbstractGameObject";
-import { Ball } from "./Ball";
-import { SceneObject } from "./SceneObject";
+import { AbstractGameObject } from './AbstractGameObject';
+import { Ball } from './Ball';
+import { SceneObject } from './SceneObject';
 
-export class Brick1 extends AbstractGameObject {
+export class LooseBallSensor extends AbstractGameObject {
 
     constructor(sceneObject: SceneObject) {
         super(sceneObject);
