@@ -51,6 +51,8 @@ export default class GameScene extends Phaser.Scene {
     setLevel(lvl: number) {
         this._level = lvl;
         this._textStage.setText(this._level.toString());
+
+        this.createObjects("level-1");
     }
 
     bind() {
@@ -77,10 +79,10 @@ export default class GameScene extends Phaser.Scene {
 
     createObjects(layerName: string) {
         const gameObjArray: AbstractGameObject[] = [];
-        const objMap = GameSceneCreator.load(this._sceneTMap, this, layerName);
+        const objArray = GameSceneCreator.load(this._sceneTMap, this, layerName);
 
         //create
-        objMap.forEach(sceneObj => {
+        objArray.forEach(sceneObj => {
             const gameObject = GameObjectFactory.create(sceneObj);
             if (gameObject) {
                 gameObjArray.push(gameObject);

@@ -4,14 +4,14 @@ import { TMap, TObject } from './elements/level-core/TInterfaces';
 import { SceneObject } from './elements/SceneObject';
 import * as SpriteBodyProvider from './elements/level-core/SpriteBodyProvider';
 
-export function load(tmap: TMap, scene: Scene, layerName: string): Map<string, SceneObject> {
-    const sceneObjectMap = new Map<string, SceneObject>(); //object name
+export function load(tmap: TMap, scene: Scene, layerName: string): SceneObject[] {
+    const sceneObjectMap: SceneObject[] = [];
     tmap.layers.forEach(lay => {
         if (lay.name === layerName) {
             lay.objects.forEach(obj => {
                 const sceneObject = factory(obj, scene);
                 if (sceneObject) {
-                    sceneObjectMap.set(obj.name, sceneObject);
+                    sceneObjectMap.push(sceneObject);
                 }
             });
         }
@@ -28,11 +28,15 @@ function factory(obj: TObject, scene: Scene): SceneObject {
         case GameObjectType.BOARD:
             return createSceneObjectWithImage(obj, scene);
 
+        case GameObjectType.BRICK1:
+            return createSceneObjectWithImage(obj, scene);
+
         case GameObjectType.SENSOR:
             return createSensor(obj, scene);
 
         case GameObjectType.TEXT:
             return createText(obj, scene);
+
     }
 
     return null;
@@ -47,7 +51,7 @@ function createSceneObjectWithImage(obj: TObject, scene: Scene): SceneObject {
 function createImage(obj: TObject, scene: Scene): Phaser.Physics.Matter.Image {
     const x = obj.x + obj.width / 2;
     const y = obj.y - obj.height / 2;
-    const image = scene.matter.add.image(x, y, obj.name);
+    const image = scene.matter.add.image(x, y, obj.type);
     const body = SpriteBodyProvider.get(obj.type);
     if (body) {
         image.setBody(body.setterConf, body.bodyConf);

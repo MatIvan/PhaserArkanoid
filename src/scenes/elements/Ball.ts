@@ -3,6 +3,8 @@ import { AbstractGameObject } from './AbstractGameObject';
 import { Board } from "./Board";
 import { SceneObject } from "./SceneObject";
 
+const VECTOR_MIN_Y = 0.5;
+
 export class Ball extends AbstractGameObject {
     private _speed: number;
 
@@ -43,8 +45,35 @@ export class Ball extends AbstractGameObject {
     }
 
     bind(ball: Ball) {
-        this.setOnCollideWith(ball, () => {
-            console.log("Collide with: ", this.toString());
-        });
+        this.body.onCollideEndCallback = (pair: Phaser.Types.Physics.Matter.MatterCollisionPair) => {
+            this.updateSpeed();
+        }
+    }
+
+    updateSpeed(inc?: number) {
+        if (inc) {
+            this._speed = this._speed * inc;
+        }
+        const y = this.normaliseVectorY(this.body.velocity.y);
+        if (y != this.body.velocity.y) {
+            console.log("Vector Y normalised:", this.body.velocity.y, y);
+        }
+        const v = new Phaser.Math.Vector2(this.body.velocity.x, y)
+            .normalize()
+            .scale(this._speed);
+        this.image.setVelocity(v.x, v.y);
+    }
+
+    private normaliseVectorY(y: number) {
+        if (y > VECTOR_MIN_Y) {
+            return y;
+        }
+        if (y < -VECTOR_MIN_Y) {
+            return y;
+        }
+        if (y > 0) {
+            return VECTOR_MIN_Y;
+        }
+        return -VECTOR_MIN_Y;
     }
 }
