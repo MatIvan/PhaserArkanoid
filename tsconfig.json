@@ -6,11 +6,8 @@
         "target": "es6",
         "sourceMap": true,
         "typeRoots": [
-            "./node_modules/phaser/types"
+            "node_modules/@types"
         ],
-        "types": [
-            "Phaser"
-        ]
     },
-    
+    "files": ["node_modules/phaser/types/phaser.d.ts"]
 }
