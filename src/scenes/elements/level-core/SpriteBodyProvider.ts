@@ -78,7 +78,7 @@ function factory(tile: TTile): SpriteBody {
                     radius: 8,
                 },
                 bodyConf: {
-                    ...NO_FRICTION
+                    ...NO_FRICTION,
                 }
             }
     }

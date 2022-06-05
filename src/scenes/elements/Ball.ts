@@ -11,6 +11,7 @@ export class Ball extends AbstractGameObject {
     constructor(sceneObject: SceneObject) {
         super(sceneObject);
         this._speed = 5;
+        this.image.setFixedRotation();
     }
 
     getSpeedAsString(): string {

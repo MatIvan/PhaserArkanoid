@@ -11,10 +11,10 @@ export class Board extends AbstractGameObject {
 
     update(input: Phaser.Input.InputPlugin) {
         let bx = input.x;
-        if (bx > 482) {
-            bx = 482;
-        } else if (bx < 50) {
-            bx = 50;
+        if (bx > 490) {
+            bx = 490;
+        } else if (bx < 80) {
+            bx = 80;
         }
         this.image.setX(bx);
     }
