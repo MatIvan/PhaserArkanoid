@@ -20,6 +20,15 @@ export interface TObject {
     rotation: number;
     type: string;
     visible: true;
+    text: TText;
+}
+
+export interface TText {
+    color: string,
+    fontfamily: string,
+    pixelsize: number,
+    text: string,
+    wrap: boolean
 }
 
 export interface TTileset {

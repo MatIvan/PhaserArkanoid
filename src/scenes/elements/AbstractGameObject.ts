@@ -25,6 +25,10 @@ export abstract class AbstractGameObject {
         return this._sceneObject.body;
     }
 
+    public get text(): Phaser.GameObjects.Text {
+        return this._sceneObject.text;
+    }
+
     public setOnCollideWith(obj: AbstractGameObject, callback: () => void) {
         this.body.setOnCollideWith(obj.body, callback);
     }

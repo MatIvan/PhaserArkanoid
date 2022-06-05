@@ -5,6 +5,8 @@ export class SceneObject {
     private _type: string;
     private _name: string;
     private _image: Phaser.Physics.Matter.Image;
+    private _text: Phaser.GameObjects.Text;
+
     private _body: BodyType;
 
     constructor(name: string, type: string) {
@@ -35,5 +37,13 @@ export class SceneObject {
 
     public get name(): string {
         return this._name;
+    }
+
+    public get text(): Phaser.GameObjects.Text {
+        return this._text;
+    }
+
+    public set text(value: Phaser.GameObjects.Text) {
+        this._text = value;
     }
 }

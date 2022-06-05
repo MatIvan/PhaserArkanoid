@@ -30,6 +30,9 @@ function factory(obj: TObject, scene: Scene): SceneObject {
 
         case GameObjectType.SENSOR:
             return createSensor(obj, scene);
+
+        case GameObjectType.TEXT:
+            return createText(obj, scene);
     }
 
     return null;
@@ -60,5 +63,16 @@ function createSensor(obj: TObject, scene: Scene): SceneObject {
         isStatic: true,
         isSensor: true,
     });
+    return sceneObject;
+}
+
+function createText(obj: TObject, scene: Scene): SceneObject {
+    const sceneObject = new SceneObject(obj.name, obj.type);
+    const style: Phaser.Types.GameObjects.Text.TextStyle = {
+        color: obj.text.color,
+        fontSize: obj.text.pixelsize.toString() + "px",
+        fontFamily: obj.text.fontfamily,
+    }
+    sceneObject.text = scene.add.text(obj.x, obj.y, obj.text.text, style).setOrigin(0);
     return sceneObject;
 }

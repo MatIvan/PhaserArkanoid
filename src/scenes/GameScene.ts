@@ -9,6 +9,7 @@ import * as GameSceneCreator from './GameSceneCreator';
 import * as GameObjectFactory from './elements/GameObjectFactory';
 import { AbstractGameObject } from './elements/AbstractGameObject';
 import * as GameSceneEmitter from './GameSceneEmitter';
+import { TextLabel } from './elements/TextLabel';
 
 
 export default class GameScene extends Phaser.Scene {
@@ -16,9 +17,13 @@ export default class GameScene extends Phaser.Scene {
     private _ball: Ball;
     private _board: Board;
 
-    private _text: Phaser.GameObjects.Text;
+    private _textScore: TextLabel;
+    private _textStage: TextLabel;
+    private _textSpeed: TextLabel;
+
     private _dev: Phaser.GameObjects.Text;
 
+    private _level: number;
     private _isFollow = true;
 
     constructor() {
@@ -36,11 +41,16 @@ export default class GameScene extends Phaser.Scene {
         SpriteBodyProvider.load(this._sceneTMap);
         this.createObjects("objects");
 
-        //ui
-        this._text = this.add.text(642, 217, "0", { color: '#00ff00', fontSize: "26px", });
         this._dev = this.add.text(0, 0, "", { fontSize: "10px", });
 
         this.bind();
+
+        this.setLevel(1);
+    }
+
+    setLevel(lvl: number) {
+        this._level = lvl;
+        this._textStage.setText(this._level.toString());
     }
 
     bind() {
@@ -57,7 +67,7 @@ export default class GameScene extends Phaser.Scene {
     update(): void {
         this._board.update(this.input);
         this._ball.update(this._board, this._isFollow);
-        this._text.setText(this._ball.getSpeedAsString());
+        this._textSpeed.setText(this._ball.getSpeedAsString());
         this._dev.setText(this._ball.toString() + this._board.toString());
     }
 
@@ -74,11 +84,7 @@ export default class GameScene extends Phaser.Scene {
             const gameObject = GameObjectFactory.create(sceneObj);
             if (gameObject) {
                 gameObjArray.push(gameObject);
-                if (sceneObj.name === GameObjectNames.BALL) {
-                    this._ball = gameObject as Ball;
-                } else if (sceneObj.name === GameObjectNames.BOARD) {
-                    this._board = gameObject as Board;
-                }
+                this.saveObject(gameObject);
             }
         });
 
@@ -86,4 +92,28 @@ export default class GameScene extends Phaser.Scene {
         gameObjArray.forEach(gameObject => gameObject.bind(this._ball));
     }
 
+    saveObject(gameObject: AbstractGameObject) {
+        switch (gameObject.sceneObject.name) {
+
+            case GameObjectNames.BALL:
+                this._ball = gameObject as Ball;
+                break;
+
+            case GameObjectNames.BOARD:
+                this._board = gameObject as Board;
+                break;
+
+            case GameObjectNames.TEXT.SCORE:
+                this._textScore = gameObject as TextLabel;
+                break;
+
+            case GameObjectNames.TEXT.STAGE:
+                this._textStage = gameObject as TextLabel;
+                break;
+
+            case GameObjectNames.TEXT.SPEED:
+                this._textSpeed = gameObject as TextLabel;
+                break;
+        }
+    }
 }

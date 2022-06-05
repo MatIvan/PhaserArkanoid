@@ -2,6 +2,7 @@ import { AbstractGameObject } from "./AbstractGameObject";
 import { Ball } from "./Ball";
 import { Board } from "./Board";
 import { Brick1 } from "./Brick1";
+import { TextLabel } from "./TextLabel";
 import { GameObjectNames, GameObjectType } from "./GameObjectType";
 import { LooseBallSensor } from "./LooseBallSensor";
 import { SceneObject } from "./SceneObject";
@@ -43,10 +44,13 @@ function createByName(sceneObj: SceneObject): AbstractGameObject {
 }
 
 function createByType(sceneObj: SceneObject): AbstractGameObject {
-    switch (sceneObj.name) {
+    switch (sceneObj.type) {
 
         case GameObjectType.BRICK1:
             return new Brick1(sceneObj);
+
+        case GameObjectType.TEXT:
+            return new TextLabel(sceneObj);
 
     }
     return null;

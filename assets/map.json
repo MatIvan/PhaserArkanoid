@@ -36,16 +36,17 @@
                  "rotation":0,
                  "text":
                     {
-                     "color":"#00ff00",
-                     "fontfamily":"MS Shell Dlg 2",
-                     "pixelsize":21,
+                     "color":"#00aa00",
+                     "fontfamily":"Roboto Mono",
+                     "pixelsize":22,
                      "text":"10",
+                     "valign":"center",
                      "wrap":true
                     },
                  "type":"text",
                  "visible":true,
                  "width":126,
-                 "x":642,
+                 "x":639,
                  "y":216
                 }, 
                 {
@@ -55,16 +56,17 @@
                  "rotation":0,
                  "text":
                     {
-                     "color":"#00ff00",
-                     "fontfamily":"MS Shell Dlg 2",
-                     "pixelsize":21,
+                     "color":"#00aa00",
+                     "fontfamily":"Roboto Mono",
+                     "pixelsize":22,
                      "text":"1",
+                     "valign":"center",
                      "wrap":true
                     },
                  "type":"text",
                  "visible":true,
                  "width":126,
-                 "x":642,
+                 "x":639,
                  "y":182.667
                 }, 
                 {
@@ -74,16 +76,17 @@
                  "rotation":0,
                  "text":
                     {
-                     "color":"#00ff00",
-                     "fontfamily":"MS Shell Dlg 2",
-                     "pixelsize":21,
+                     "color":"#00aa00",
+                     "fontfamily":"Roboto Mono",
+                     "pixelsize":22,
                      "text":"55555",
+                     "valign":"center",
                      "wrap":true
                     },
                  "type":"text",
                  "visible":true,
                  "width":126,
-                 "x":642,
+                 "x":639,
                  "y":150
                 }, 
                 {
@@ -573,7 +576,6 @@
                  "objectgroup":
                     {
                      "draworder":"index",
-                     "id":2,
                      "name":"",
                      "objects":[
                             {
@@ -604,7 +606,6 @@
                  "objectgroup":
                     {
                      "draworder":"index",
-                     "id":2,
                      "name":"",
                      "objects":[
                             {
@@ -667,7 +668,6 @@
                  "objectgroup":
                     {
                      "draworder":"index",
-                     "id":2,
                      "name":"",
                      "objects":[
                             {

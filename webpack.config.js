@@ -39,6 +39,7 @@ module.exports = {
         new CopyWebpackPlugin({
             patterns: [
                 { from: "assets", to: "assets" },
+                { from: "style", to: "style" },
             ]
         }),
     ],
