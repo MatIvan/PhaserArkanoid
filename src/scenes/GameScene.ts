@@ -138,7 +138,8 @@ export default class GameScene extends Phaser.Scene {
                 this._textSpeed = gameObject as TextLabel;
                 break;
         }
-        if (gameObject.sceneObject.type === GameObjectType.BRICK1) {
+        const t = gameObject.sceneObject.type;
+        if (t === GameObjectType.BRICK1 || t === GameObjectType.BRICK2) {
             this._bricks++;
         }
     }

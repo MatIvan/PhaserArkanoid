@@ -539,6 +539,138 @@
                  "width":26,
                  "x":280,
                  "y":210
+                }, 
+                {
+                 "gid":4,
+                 "height":20,
+                 "id":52,
+                 "name":"",
+                 "rotation":0,
+                 "type":"brick-2",
+                 "visible":true,
+                 "width":32,
+                 "x":60,
+                 "y":90
+                }, 
+                {
+                 "gid":4,
+                 "height":20,
+                 "id":53,
+                 "name":"",
+                 "rotation":0,
+                 "type":"brick-2",
+                 "visible":true,
+                 "width":32,
+                 "x":60,
+                 "y":150
+                }, 
+                {
+                 "gid":4,
+                 "height":20,
+                 "id":54,
+                 "name":"",
+                 "rotation":0,
+                 "type":"brick-2",
+                 "visible":true,
+                 "width":32,
+                 "x":60,
+                 "y":210
+                }, 
+                {
+                 "gid":4,
+                 "height":20,
+                 "id":55,
+                 "name":"",
+                 "rotation":0,
+                 "type":"brick-2",
+                 "visible":true,
+                 "width":32,
+                 "x":60,
+                 "y":270
+                }, 
+                {
+                 "gid":4,
+                 "height":20,
+                 "id":57,
+                 "name":"",
+                 "rotation":0,
+                 "type":"brick-2",
+                 "visible":true,
+                 "width":32,
+                 "x":160,
+                 "y":270
+                }, 
+                {
+                 "gid":4,
+                 "height":20,
+                 "id":58,
+                 "name":"",
+                 "rotation":0,
+                 "type":"brick-2",
+                 "visible":true,
+                 "width":32,
+                 "x":250,
+                 "y":270
+                }, 
+                {
+                 "gid":4,
+                 "height":20,
+                 "id":59,
+                 "name":"",
+                 "rotation":0,
+                 "type":"brick-2",
+                 "visible":true,
+                 "width":32,
+                 "x":340,
+                 "y":270
+                }, 
+                {
+                 "gid":4,
+                 "height":20,
+                 "id":61,
+                 "name":"",
+                 "rotation":0,
+                 "type":"brick-2",
+                 "visible":true,
+                 "width":32,
+                 "x":440,
+                 "y":90
+                }, 
+                {
+                 "gid":4,
+                 "height":20,
+                 "id":62,
+                 "name":"",
+                 "rotation":0,
+                 "type":"brick-2",
+                 "visible":true,
+                 "width":32,
+                 "x":440,
+                 "y":150
+                }, 
+                {
+                 "gid":4,
+                 "height":20,
+                 "id":63,
+                 "name":"",
+                 "rotation":0,
+                 "type":"brick-2",
+                 "visible":true,
+                 "width":32,
+                 "x":440,
+                 "y":210
+                }, 
+                {
+                 "gid":4,
+                 "height":20,
+                 "id":64,
+                 "name":"",
+                 "rotation":0,
+                 "type":"brick-2",
+                 "visible":true,
+                 "width":32,
+                 "x":440,
+                 "y":270
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -547,7 +679,7 @@
          "y":0
         }],
  "nextlayerid":5,
- "nextobjectid":52,
+ "nextobjectid":65,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.8.5",
@@ -565,8 +697,8 @@
          "margin":0,
          "name":"sprites",
          "spacing":0,
-         "tilecount":3,
-         "tileheight":24,
+         "tilecount":4,
+         "tileheight":20,
          "tiles":[
                 {
                  "id":0,
@@ -721,6 +853,69 @@
                      "y":0
                     },
                  "type":"brick-1"
+                }, 
+                {
+                 "id":3,
+                 "image":"brick-2.png",
+                 "imageheight":20,
+                 "imagewidth":32,
+                 "objectgroup":
+                    {
+                     "draworder":"index",
+                     "id":2,
+                     "name":"",
+                     "objects":[
+                            {
+                             "height":0,
+                             "id":1,
+                             "name":"",
+                             "polygon":[
+                                    {
+                                     "x":0,
+                                     "y":0
+                                    }, 
+                                    {
+                                     "x":3.0625,
+                                     "y":-3.0625
+                                    }, 
+                                    {
+                                     "x":27.9375,
+                                     "y":-3.03125
+                                    }, 
+                                    {
+                                     "x":30.96875,
+                                     "y":0.0625
+                                    }, 
+                                    {
+                                     "x":30.96875,
+                                     "y":12.84375
+                                    }, 
+                                    {
+                                     "x":27.8125,
+                                     "y":16
+                                    }, 
+                                    {
+                                     "x":3.09375,
+                                     "y":16
+                                    }, 
+                                    {
+                                     "x":-0.09375,
+                                     "y":12.78125
+                                    }],
+                             "rotation":0,
+                             "type":"",
+                             "visible":true,
+                             "width":0,
+                             "x":0.46875,
+                             "y":3.53125
+                            }],
+                     "opacity":1,
+                     "type":"objectgroup",
+                     "visible":true,
+                     "x":0,
+                     "y":0
+                    },
+                 "type":"brick-2"
                 }],
          "tilewidth":64
         }],

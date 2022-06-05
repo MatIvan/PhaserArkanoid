@@ -2,6 +2,7 @@ export const GameObjectType = {
     BACKGROUND: "field",
     BOARD: "board",
     BRICK1: "brick-1",
+    BRICK2: "brick-2",
     BALL: "ball",
     SENSOR: "sensor",
     TEXT: "text",

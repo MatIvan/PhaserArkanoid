@@ -31,6 +31,9 @@ function factory(obj: TObject, scene: Scene): SceneObject {
         case GameObjectType.BRICK1:
             return createSceneObjectWithImage(obj, scene);
 
+        case GameObjectType.BRICK2:
+            return createSceneObjectWithImage(obj, scene);
+
         case GameObjectType.SENSOR:
             return createSensor(obj, scene);
 

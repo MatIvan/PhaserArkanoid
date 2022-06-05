@@ -59,6 +59,18 @@ function factory(tile: TTile): SpriteBody {
                 }
             }
 
+        case GameObjectType.BRICK2:
+            return {
+                setterConf: {
+                    type: POLIGON
+                },
+                bodyConf: {
+                    ...NO_FRICTION,
+                    isStatic: true,
+                    vertices: tile.objectgroup.objects[0].polygon
+                }
+            }
+
         case GameObjectType.BALL:
             return {
                 setterConf: {

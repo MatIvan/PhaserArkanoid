@@ -8,6 +8,7 @@ import { LooseBallSensor } from "./LooseBallSensor";
 import { SceneObject } from "./SceneObject";
 import { WallHorisontal } from "./WallHorisontal";
 import { WallVertical } from "./WallVertical";
+import { Brick2 } from "./Brick2";
 
 export function create(sceneObj: SceneObject): AbstractGameObject {
     let obj: AbstractGameObject = null;
@@ -48,6 +49,9 @@ function createByType(sceneObj: SceneObject): AbstractGameObject {
 
         case GameObjectType.BRICK1:
             return new Brick1(sceneObj);
+
+        case GameObjectType.BRICK2:
+            return new Brick2(sceneObj);
 
         case GameObjectType.TEXT:
             return new TextLabel(sceneObj);
