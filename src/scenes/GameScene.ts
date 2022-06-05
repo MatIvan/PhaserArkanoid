@@ -11,6 +11,7 @@ import { AbstractGameObject } from './elements/AbstractGameObject';
 import * as GameSceneEmitter from './GameSceneEmitter';
 import { TextLabel } from './elements/TextLabel';
 
+const SCORE_PER_BRICK = 10;
 
 export default class GameScene extends Phaser.Scene {
     private _sceneTMap: TMap;
@@ -23,8 +24,10 @@ export default class GameScene extends Phaser.Scene {
 
     private _dev: Phaser.GameObjects.Text;
 
-    private _level: number;
+    private _level = 0;
     private _isFollow = true;
+    private _score = 0;
+    private _bricks = 0;
 
     constructor() {
         super('GameScene')
@@ -44,15 +47,15 @@ export default class GameScene extends Phaser.Scene {
         this._dev = this.add.text(0, 0, "", { fontSize: "10px", });
 
         this.bind();
-
-        this.setLevel(1);
+        this._updateScore();
+        this.nextLevel();
     }
 
-    setLevel(lvl: number) {
-        this._level = lvl;
+    nextLevel() {
+        this._level++;
         this._textStage.setText(this._level.toString());
-
-        this.createObjects("level-1");
+        this._isFollow = true;
+        this.createObjects("level-" + this._level.toString());
     }
 
     bind() {
@@ -64,17 +67,35 @@ export default class GameScene extends Phaser.Scene {
         });
 
         GameSceneEmitter.onLooseBall((ball) => { this.looseBall(ball) });
+        GameSceneEmitter.onBrickDestroed((brick) => { this.onBrickDestroed(brick) });
     }
 
     update(): void {
         this._board.update(this.input);
         this._ball.update(this._board, this._isFollow);
         this._textSpeed.setText(this._ball.getSpeedAsString());
-        this._dev.setText(this._ball.toString() + this._board.toString());
+        this._dev.setText(
+            this._ball.toString() + "\n" +
+            this._board.toString() + "\n" +
+            "Bricks: " + this._bricks.toString()
+        );
     }
 
     looseBall(ball: Ball) {
         this._isFollow = true;
+    }
+
+    onBrickDestroed(brick: AbstractGameObject) {
+        this._score += SCORE_PER_BRICK;
+        this._updateScore();
+        this._bricks--;
+        if (this._bricks <= 0) {
+            this.nextLevel();
+        }
+    }
+
+    private _updateScore() {
+        this._textScore.setText(this._score.toString());
     }
 
     createObjects(layerName: string) {
@@ -116,6 +137,9 @@ export default class GameScene extends Phaser.Scene {
             case GameObjectNames.TEXT.SPEED:
                 this._textSpeed = gameObject as TextLabel;
                 break;
+        }
+        if (gameObject.sceneObject.type === GameObjectType.BRICK1) {
+            this._bricks++;
         }
     }
 }

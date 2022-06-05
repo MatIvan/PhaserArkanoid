@@ -55,9 +55,6 @@ export class Ball extends AbstractGameObject {
             this._speed = this._speed * inc;
         }
         const y = this.normaliseVectorY(this.body.velocity.y);
-        if (y != this.body.velocity.y) {
-            console.log("Vector Y normalised:", this.body.velocity.y, y);
-        }
         const v = new Phaser.Math.Vector2(this.body.velocity.x, y)
             .normalize()
             .scale(this._speed);

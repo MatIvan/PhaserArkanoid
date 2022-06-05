@@ -1,7 +1,7 @@
 import { AbstractGameObject } from "./AbstractGameObject";
 import { Ball } from "./Ball";
 import { SceneObject } from "./SceneObject";
-
+import { fireBrickDestroed } from '../GameSceneEmitter';
 export class Brick1 extends AbstractGameObject {
 
     constructor(sceneObject: SceneObject) {
@@ -10,7 +10,8 @@ export class Brick1 extends AbstractGameObject {
 
     bind(ball: Ball) {
         this.setOnCollideWith(ball, () => {
-            console.log("Collide with: ", this.toString());
+            this.image.destroy();
+            fireBrickDestroed(this);
         });
     }
 }
