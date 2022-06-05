@@ -22,8 +22,6 @@ export default class GameScene extends Phaser.Scene {
     private _textStage: TextLabel;
     private _textSpeed: TextLabel;
 
-    private _dev: Phaser.GameObjects.Text;
-
     private _level = 0;
     private _isFollow = true;
     private _score = 0;
@@ -43,8 +41,6 @@ export default class GameScene extends Phaser.Scene {
         this._sceneTMap = this.cache.json.get(GameScenePreloader.SCENE_MAP) as TMap;
         SpriteBodyProvider.load(this._sceneTMap);
         this.createObjects("objects");
-
-        this._dev = this.add.text(0, 0, "", { fontSize: "10px", });
 
         this.bind();
         this._updateScore();
@@ -74,11 +70,6 @@ export default class GameScene extends Phaser.Scene {
         this._board.update(this.input);
         this._ball.update(this._board, this._isFollow);
         this._textSpeed.setText(this._ball.getSpeedAsString());
-        this._dev.setText(
-            this._ball.toString() + "\n" +
-            this._board.toString() + "\n" +
-            "Bricks: " + this._bricks.toString()
-        );
     }
 
     looseBall(ball: Ball) {
