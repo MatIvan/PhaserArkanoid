@@ -1,7 +1,7 @@
 {
-  "name": "ts-ph3-template",
+  "name": "phaser-arkanoid",
   "version": "1.0.0",
-  "description": "",
+  "description": "simple game Arkanoid developed by Phaser (TypeScript)",
   "private": true,
   "scripts": {
     "build": "webpack"
